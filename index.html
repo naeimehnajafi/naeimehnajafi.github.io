@@ -106,7 +106,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="post" action=action="send_email.php">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -126,6 +126,20 @@
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
+								<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $message = $_POST['message'];
+
+  $to = 'your_email@example.com';
+  $subject = 'New message from ' . $name;
+  $body = "Name: $name\nEmail: $email\nMessage:\n$message";
+
+  mail($to, $subject, $body);
+}
+?>
+
 								<ul class="icons">
 									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
