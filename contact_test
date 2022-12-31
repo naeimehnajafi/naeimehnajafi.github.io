@@ -1,0 +1,45 @@
+## Contact page
+
+The contact page includes a form that allows users to send a message to your email. However, since GitHub pages are static and do not support server-side scripts, this form will not work as intended. Instead, you can use a service like [Formspree](https://formspree.io/) to handle the form submission and send the message to your email.
+'''<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="send_email.php">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>								<?php
+									if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+									  $name = $_POST['name'];
+									  $email = $_POST['email'];
+									  $message = $_POST['message'];
+
+									  $to = 'naeimeh.najafi@gmail.com';
+									  $subject = 'New message from ' . $name;
+									  $body = "Name: $name\nEmail: $email\nMessage:\n$message";
+
+									  mail($to, $subject, $body);
+									}
+									?>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</article>'''
