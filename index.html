@@ -106,7 +106,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="send_email.php">
+								<form method="post" action="https://formspree.io/f/mlekeejb">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -120,19 +120,8 @@
 											<label for="message">Message</label>
 											<textarea name="message" id="message" rows="4"></textarea>
 										</div>
-									</div>								<?php
-									if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-									  $name = $_POST['name'];
-									  $email = $_POST['email'];
-									  $message = $_POST['message'];
-
-									  $to = 'naeimeh.najafi@gmail.com';
-									  $subject = 'New message from ' . $name;
-									  $body = "Name: $name\nEmail: $email\nMessage:\n$message";
-
-									  mail($to, $subject, $body);
-									}
-									?>
+									</div>								
+									
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
